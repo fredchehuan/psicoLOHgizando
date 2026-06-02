@@ -167,7 +167,7 @@ ul {
   height: var(--header-height);
 }
 
-/* ---------- LOGO (flor lilás + texto com CSS puro) ---------- */
+/* ---------- LOGO (flor lilás SVG + texto) ---------- */
 .logo {
   display: flex;
   align-items: center;
@@ -177,40 +177,8 @@ ul {
 }
 
 .logo__flower {
-  display: inline-block;
-  position: relative;
-  width: 34px;
-  height: 34px;
+  display: block;
   flex-shrink: 0;
-  /* Centro amarelo da flor */
-  background: radial-gradient(circle at center, #F5D76E 0%, #F5D76E 4px, transparent 4px);
-}
-
-.logo__flower::before,
-.logo__flower::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-}
-
-/* Pétala vertical */
-.logo__flower::before {
-  width: 14px;
-  height: 34px;
-  top: 0;
-  left: 10px;
-  border-radius: 7px;
-  background: var(--cor-lilas-escuro);
-}
-
-/* Pétala horizontal */
-.logo__flower::after {
-  width: 34px;
-  height: 14px;
-  top: 10px;
-  left: 0;
-  border-radius: 7px;
-  background: var(--cor-lilas);
 }
 
 .logo__text {
@@ -352,6 +320,7 @@ ul {
   background: var(--cor-lilas);
   top: 10%;
   right: -60px;
+  animation: breathe-lilas 12s ease-in-out infinite;
 }
 
 .hero__parallax--circle2 {
@@ -361,6 +330,8 @@ ul {
   bottom: 15%;
   left: -40px;
   border-radius: 40% 60% 50% 50%;
+  animation: breathe-lilas-escuro 16s ease-in-out infinite;
+  animation-delay: -4s;
 }
 
 .hero__parallax--flower {
@@ -369,7 +340,9 @@ ul {
   background: none;
   top: 40%;
   right: 15%;
-  opacity: 0.12;
+  opacity: 0.10;
+  animation: breathe-opacity 14s ease-in-out infinite;
+  animation-delay: -8s;
   /* Pétalas desenhadas com box-shadow */
   box-shadow:
     30px 0 0 -5px var(--cor-lilas-escuro),
@@ -437,9 +410,77 @@ ul {
   line-height: 1.6;
 }
 
+/* ---------- BLOBS PARALLAX GENÉRICOS (seções) ---------- */
+.parallax-bg {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 0;
+}
+
+.parallax-bg--sobre1 {
+  width: 220px;
+  height: 220px;
+  background: var(--cor-lilas-muito-claro);
+  opacity: 0.3;
+  top: 10%;
+  left: -80px;
+  animation: breathe-lilas-muito-claro 16s ease-in-out infinite;
+}
+
+.parallax-bg--sobre2 {
+  width: 140px;
+  height: 140px;
+  background: var(--cor-lilas-claro);
+  opacity: 0.25;
+  bottom: 10%;
+  right: -50px;
+  border-radius: 40% 60% 55% 45%;
+  animation: breathe-lilas-claro 14s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+.parallax-bg--depo1 {
+  width: 180px;
+  height: 180px;
+  background: var(--cor-lilas);
+  opacity: 0.12;
+  top: 20%;
+  right: -60px;
+  animation: breathe-lilas 18s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.parallax-bg--ctt1 {
+  width: 200px;
+  height: 200px;
+  background: var(--cor-lilas-claro);
+  opacity: 0.18;
+  bottom: 10%;
+  left: -70px;
+  border-radius: 45% 55% 60% 40%;
+  animation: breathe-lilas-claro 16s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+/* ---------- REVEAL ON SCROLL ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ---------- SOBRE ---------- */
 .sobre {
   padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .sobre__container {
@@ -506,6 +547,18 @@ ul {
   color: var(--cor-lilas);
   margin-bottom: 0.65rem;
   display: block;
+  animation: breathe-icon-nobg 12s ease-in-out infinite;
+}
+
+/* Cada ícone do Sobre respira com delay diferente */
+.sobre__card:nth-child(1) .sobre__icon {
+  animation-delay: 0s;
+}
+.sobre__card:nth-child(2) .sobre__icon {
+  animation-delay: -4s;
+}
+.sobre__card:nth-child(3) .sobre__icon {
+  animation-delay: -8s;
 }
 
 /* ---------- SERVIÇOS ---------- */
@@ -516,7 +569,7 @@ ul {
   overflow: hidden;
 }
 
-/* Blob decorativo com parallax */
+  /* Blob decorativo com parallax + respiração */
 .servicos__parallax {
   position: absolute;
   width: 200px;
@@ -528,6 +581,8 @@ ul {
   right: -60px;
   will-change: transform;
   z-index: 0;
+  animation: breathe-lilas-muito-claro 14s ease-in-out infinite;
+  animation-delay: -7s;
 }
 
 .servicos__container {
@@ -567,6 +622,18 @@ ul {
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: var(--cor-lilas-escuro);
+  animation: breathe-icon 10s ease-in-out infinite;
+}
+
+/* Cada ícone respira com delay diferente */
+.servico-card:nth-child(1) .servico-card__icon {
+  animation-delay: 0s;
+}
+.servico-card:nth-child(2) .servico-card__icon {
+  animation-delay: -3.3s;
+}
+.servico-card:nth-child(3) .servico-card__icon {
+  animation-delay: -6.7s;
 }
 
 .servico-card__titulo {
@@ -594,6 +661,8 @@ ul {
 .depoimentos {
   padding: 4rem 0;
   background: var(--cor-bg-alt);
+  position: relative;
+  overflow: hidden;
 }
 
 .depoimentos__grid {
@@ -656,6 +725,8 @@ ul {
 .contato {
   padding: 4rem 0;
   background: var(--cor-branco);
+  position: relative;
+  overflow: hidden;
 }
 
 .contato__chamada {
@@ -851,7 +922,7 @@ ul {
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
   z-index: 999;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: float-sway 3s ease-in-out infinite;
+  animation: float-sway 6s ease-in-out infinite;
 }
 
 .whatsapp-float:hover {
@@ -863,6 +934,58 @@ ul {
 @keyframes float-sway {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
+}
+
+/* ---------- KEYFRAMES: RESPIRAÇÃO (cores) ---------- */
+
+/* Tom lilás padrão: claro ↔ escuro */
+@keyframes breathe-lilas {
+  0%, 100% { background-color: #D8BFD8; }
+  50%       { background-color: #A78DB8; }
+}
+
+/* Tom lilás escuro: médio ↔ profundo */
+@keyframes breathe-lilas-escuro {
+  0%, 100% { background-color: #C8A2C8; }
+  50%       { background-color: #9575B6; }
+}
+
+/* Tom lilás claro: bem claro ↔ médio */
+@keyframes breathe-lilas-claro {
+  0%, 100% { background-color: #F0E6F2; }
+  50%       { background-color: #C8A2C8; }
+}
+
+/* Tom lilás muito claro: quase branco ↔ claro */
+@keyframes breathe-lilas-muito-claro {
+  0%, 100% { background-color: #F9F1FA; }
+  50%       { background-color: #D8BFD8; }
+}
+
+/* Opacidade (para o box-shadow da flor na hero) — alcance maior */
+@keyframes breathe-opacity {
+  0%, 100% { opacity: 0.08; }
+  50%       { opacity: 0.28; }
+}
+
+/* ---------- KEYFRAMES: RESPIRAÇÃO (ícones) ---------- */
+
+/* Ícones com fundo (Serviços) */
+@keyframes breathe-icon {
+  0%, 100% {
+    transform: scale(1);
+    background-color: var(--cor-lilas-muito-claro);
+  }
+  50% {
+    transform: scale(1.22);
+    background-color: var(--cor-lilas-claro);
+  }
+}
+
+/* Ícones sem fundo (Sobre) — apenas escala */
+@keyframes breathe-icon-nobg {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.22); }
 }
 
 /* ============================================================

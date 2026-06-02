@@ -29,7 +29,23 @@
     <div class="container header__container">
       <!-- Logo -->
       <a href="#inicio" class="logo" aria-label="psicoLOHgizando — Ir para o início">
-        <span class="logo__flower" aria-hidden="true"></span>
+        <!-- Flor rosa lilás em SVG inline -->
+        <svg class="logo__flower" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+          <defs>
+            <radialGradient id="petalGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#D8BFD8"/>
+              <stop offset="100%" stop-color="#B39CD0"/>
+            </radialGradient>
+          </defs>
+          <!-- 5 pétalas -->
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGrad)" transform="rotate(0 20 20)" opacity="0.9"/>
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGrad)" transform="rotate(72 20 20)" opacity="0.9"/>
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGrad)" transform="rotate(144 20 20)" opacity="0.9"/>
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGrad)" transform="rotate(216 20 20)" opacity="0.9"/>
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGrad)" transform="rotate(288 20 20)" opacity="0.9"/>
+          <!-- Centro da flor -->
+          <circle cx="20" cy="20" r="4.5" fill="#F5D76E"/>
+        </svg>
         <span class="logo__text">psico<span class="logo__highlight">LOH</span>gizando</span>
       </a>
 
@@ -77,6 +93,10 @@
 
     <!-- ===== SOBRE A LOH ===== -->
     <section class="sobre" id="sobre">
+      <!-- Elementos parallax de fundo -->
+      <div class="parallax-bg parallax-bg--sobre1" aria-hidden="true"></div>
+      <div class="parallax-bg parallax-bg--sobre2" aria-hidden="true"></div>
+
       <div class="container sobre__container">
         <div class="sobre__content">
           <h2 class="section__title">Sobre a Loh</h2>
@@ -167,6 +187,9 @@
 
     <!-- ===== DEPOIMENTOS ===== -->
     <section class="depoimentos" id="depoimentos">
+      <!-- Elemento parallax de fundo -->
+      <div class="parallax-bg parallax-bg--depo1" aria-hidden="true"></div>
+
       <div class="container depoimentos__container">
         <h2 class="section__title">Depoimentos</h2>
         <p class="section__subtitle">O que quem já passou por aqui tem a dizer:</p>
@@ -210,6 +233,9 @@
 
     <!-- ===== CONTATO ===== -->
     <section class="contato" id="contato">
+      <!-- Elemento parallax de fundo -->
+      <div class="parallax-bg parallax-bg--ctt1" aria-hidden="true"></div>
+
       <div class="container contato__container">
         <h2 class="section__title">Contato</h2>
         <p class="section__subtitle contato__chamada">
@@ -269,7 +295,23 @@
     <div class="container footer__container">
       <!-- Logo repetida no footer -->
       <div class="footer__logo">
-        <span class="logo__flower logo__flower--footer" aria-hidden="true"></span>
+        <!-- Flor rosa lilás em SVG inline (footer) -->
+        <svg class="logo__flower logo__flower--footer" viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+          <defs>
+            <radialGradient id="petalGradFooter" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#D8BFD8"/>
+              <stop offset="100%" stop-color="#B39CD0"/>
+            </radialGradient>
+          </defs>
+          <!-- 5 pétalas -->
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGradFooter)" transform="rotate(0 20 20)" opacity="0.9"/>
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGradFooter)" transform="rotate(72 20 20)" opacity="0.9"/>
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGradFooter)" transform="rotate(144 20 20)" opacity="0.9"/>
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGradFooter)" transform="rotate(216 20 20)" opacity="0.9"/>
+          <ellipse cx="20" cy="8" rx="8" ry="14" fill="url(#petalGradFooter)" transform="rotate(288 20 20)" opacity="0.9"/>
+          <!-- Centro da flor -->
+          <circle cx="20" cy="20" r="4.5" fill="#F5D76E"/>
+        </svg>
         <span class="logo__text logo__text--footer">psico<span class="logo__highlight">LOH</span>gizando</span>
       </div>
 
